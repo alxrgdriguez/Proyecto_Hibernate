@@ -31,8 +31,10 @@ public class Jugador {
     /**
      * Constructor TEST
      */
-    public Jugador(String nickJugador, String email) {
+    public Jugador(String nickJugador, String email, Integer edad, String pais) {
         this.nickJugador = nickJugador;
         this.email = email;
+        this.edad = edad;
+        this.pais = pais;
     }
 }

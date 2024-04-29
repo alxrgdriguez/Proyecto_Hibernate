@@ -16,7 +16,12 @@ public class App {
         Jugador jugador1 = new Jugador("Topeto14", "topeto@gmail.com");
         repositorioJugador.insertarJugador(jugador1);
 
+
+
+        /*repositorioJugador.eliminarJugador(jugador1);
+        repositorioJugador.eliminarJugador(repositorioJugador.findById(2L));*/
         repositorioJugador.cerrarSession();
+
 
 
     }

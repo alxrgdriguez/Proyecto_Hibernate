@@ -27,7 +27,12 @@ public class Jugador {
 
     private String pais;
 
-    @Lob
-    private byte[] avatar;
 
+    /**
+     * Constructor TEST
+     */
+    public Jugador(String nickJugador, String email) {
+        this.nickJugador = nickJugador;
+        this.email = email;
+    }
 }

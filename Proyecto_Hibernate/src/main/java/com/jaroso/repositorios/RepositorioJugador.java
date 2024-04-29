@@ -2,9 +2,6 @@ package com.jaroso.repositorios;
 
 import com.jaroso.HibernateUtil;
 import com.jaroso.entidades.Jugador;
-import lombok.NoArgsConstructor;
-import lombok.var;
-import org.hibernate.Session;
 import org.hibernate.Session;
 
 import java.util.List;
@@ -59,6 +56,6 @@ public class RepositorioJugador {
      * @return List con todos los Jugadores en la base de datos
      */
     public List<Jugador> findAll(){
-        return session.createQuery("Select jugador From Jugador jugador").list();
+        return session.createQuery("Select jugador From Jugador jugador", Jugador.class).list();
     }
 }

@@ -1,0 +1,2 @@
+CREATE DATABASE proyecto_hibernate2024;
+USE proyecto_hibernate2024;

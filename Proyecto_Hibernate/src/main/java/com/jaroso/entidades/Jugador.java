@@ -23,7 +23,8 @@ public class Jugador {
 
     private String idioma;
 
-    /*private Juego juegoPreferido;*/
+    @ManyToOne
+    private Juego juegoPreferido;
 
     private String pais;
 

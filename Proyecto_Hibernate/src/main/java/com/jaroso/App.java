@@ -13,12 +13,10 @@ public class App {
         //Creamos el repositorio
         RepositorioJugador repositorioJugador = new RepositorioJugador();
 
-        Jugador jugador1 = new Jugador("Topeto14", "topeto@gmail.com");
-        repositorioJugador.insertarJugador(jugador1);
+        Jugador j1 = new Jugador("Topeto14", "topeto@gmail.com", 32, "España");
+        repositorioJugador.insertarJugador(j1);
 
-
-
-        /*repositorioJugador.eliminarJugador(jugador1);
+        /*repositorioJugador.eliminarJugador(j1);
         repositorioJugador.eliminarJugador(repositorioJugador.findById(2L));*/
         repositorioJugador.cerrarSession();
 

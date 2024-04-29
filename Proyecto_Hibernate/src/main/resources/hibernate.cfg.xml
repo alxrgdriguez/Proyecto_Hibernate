@@ -18,6 +18,7 @@
         <property name="hibernate.hbm2ddl.auto">update</property>
         <property name="hibernate.connection.CharSet">utf8mb4</property>
         <property name="hibernate.connection.characterEncoding">utf8</property>
-        <mapping class="com.example.entities.Employee" />
+        <mapping class="com.jaroso.entidades.Juego" />
+        <mapping class="com.jaroso.entidades.Jugador" />
     </session-factory>
 </hibernate-configuration>

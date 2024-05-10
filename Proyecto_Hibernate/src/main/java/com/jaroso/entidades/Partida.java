@@ -29,9 +29,13 @@ public class Partida {
 
     private Juego juego;
 
-    private Jugador ganador;
+    private Jugador ganador; /*ManyToOne a Jugador para no crear una tabla intermedia*/
 
     private List<Jugador> participantes;
 
+
+    /*MayToOne juego*/
+
+    /*ManyToMany JoinTable juego*/
 
 }

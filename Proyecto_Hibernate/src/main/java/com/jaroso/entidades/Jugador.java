@@ -3,6 +3,9 @@ package com.jaroso.entidades;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
+import java.util.Set;
+
 @Entity
 @Getter
 @Setter
@@ -27,6 +30,9 @@ public class Jugador {
     private Juego juegoPreferido;
 
     private String pais;
+
+    @ManyToMany(mappedBy = "usuario")
+    private Set<Partida> partidas;
 
 
     /**

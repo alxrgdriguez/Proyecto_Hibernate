@@ -1,9 +1,6 @@
 package com.jaroso.entidades;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
@@ -21,21 +18,33 @@ public class Partida {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idPartida;
+    private Long id;
 
     private LocalDateTime fechaHora;
 
     private Integer duracion;
 
+    @ManyToOne
+    @JoinColumn (name = "id_juego")
     private Juego juego;
 
-    private Jugador ganador; /*ManyToOne a Jugador para no crear una tabla intermedia*/
+    @ManyToOne
+    @JoinColumn (name = "id_jugador")
+    private Jugador ganador;
+
+    @ManyToMany
+    @JoinTable (
+            name = "participantes",
+            joinColumns = @JoinColumn (
+                    name = "id_partida",
+                    referencedColumnName = "id" /*Hace referencia al id de Partida*/
+            ),
+            inverseJoinColumns = @JoinColumn (
+                    name = "id_jugador",
+                    referencedColumnName = "id" /*Hace referencia al id del Jugador*/
+            )
+    )
 
     private List<Jugador> participantes;
-
-
-    /*MayToOne juego*/
-
-    /*ManyToMany JoinTable juego*/
 
 }

@@ -16,7 +16,7 @@ public class Jugador {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idJugador;
+    private Long id;
 
     private String nickJugador;
 
@@ -26,13 +26,10 @@ public class Jugador {
 
     private String idioma;
 
-    @ManyToOne
-    private Juego juegoPreferido;
-
     private String pais;
 
-    @ManyToMany(mappedBy = "usuario")
-    private Set<Partida> partidas;
+    @ManyToOne
+    private Juego juegoPreferido;
 
 
     /**

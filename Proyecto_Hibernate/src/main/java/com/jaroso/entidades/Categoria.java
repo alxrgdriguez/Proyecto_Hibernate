@@ -1,4 +1,6 @@
 package com.jaroso.entidades;
 
-public class Categoria {
+public enum Categoria {
+
+    ACCION, ARCADE, AVENTURA, DEPORTES, ESTRATEGIA, SIMULACION, JUEGOSDEMESA, GUERRA, MUSICALES, DISPAROS, SIGILO, CARRERAS, TERROR
 }

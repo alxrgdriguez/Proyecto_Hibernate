@@ -1,9 +1,6 @@
 package com.jaroso.entidades;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
@@ -16,15 +13,22 @@ public class Juego {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idJuego;
+    private Long id;
 
     private String nombre;
 
+    @Enumerated (value = EnumType.STRING)
     private Plataforma plataforma;
 
     private Integer pegi;
 
+    @Enumerated (value = EnumType.STRING)
     private Categoria categoria;
 
-
+    public Juego(String nombre, Plataforma plataforma, Integer pegi, Categoria categoria) {
+        this.nombre = nombre;
+        this.plataforma = plataforma;
+        this.pegi = pegi;
+        this.categoria = categoria;
+    }
 }

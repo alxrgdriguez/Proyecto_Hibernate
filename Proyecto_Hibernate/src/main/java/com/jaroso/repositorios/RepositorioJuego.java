@@ -28,7 +28,7 @@ public class RepositorioJuego {
      * Inserta un objeto Juego en la BBDD
      * @param juego (no lleve id, sino hace update)
      */
-    public void insertarJugador(Juego juego){
+    public void insertarJuego(Juego juego){
         session.beginTransaction();
         session.persist(juego);
         session.getTransaction().commit();
@@ -45,7 +45,7 @@ public class RepositorioJuego {
     /**
      * Elimina un objeto jugador en la base de datos
      */
-    public void eliminarJugador(Juego juego){
+    public void eliminarJuego(Juego juego){
         session.beginTransaction();
         session.remove(juego);
         session.getTransaction().commit();

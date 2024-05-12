@@ -1,9 +1,9 @@
-package com.jaroso;
+package com.jaroso.aplicacion;
 
-import com.jaroso.entidades.Categoria;
+import com.jaroso.enums.Categoria;
 import com.jaroso.entidades.Juego;
 import com.jaroso.entidades.Jugador;
-import com.jaroso.entidades.Plataforma;
+import com.jaroso.enums.Plataforma;
 import com.jaroso.repositorios.RepositorioJuego;
 import com.jaroso.repositorios.RepositorioJugador;
 import jakarta.transaction.Transactional;

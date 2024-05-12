@@ -1,4 +1,4 @@
-package com.jaroso.entidades;
+package com.jaroso.enums;
 
 public enum Plataforma {
 

@@ -1,5 +1,7 @@
 package com.jaroso.entidades;
 
+import com.jaroso.enums.Categoria;
+import com.jaroso.enums.Plataforma;
 import jakarta.persistence.*;
 import lombok.*;
 

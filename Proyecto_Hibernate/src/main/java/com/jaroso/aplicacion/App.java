@@ -18,7 +18,7 @@ public class App {
         RepositorioJuego repositorioJuego = new RepositorioJuego();
 
         Jugador j1 = new Jugador("Topeto14", "topeto@gmail.com", 32, "España");
-        Juego juego1 = new Juego("Counter Strike", Plataforma.PC, 18, Categoria.DISPAROS);
+        Juego juego1 = new Juego("Counter Strike", Plataforma.PC, Categoria.DISPAROS,18);
         repositorioJugador.insertarJugador(j1);
         repositorioJuego.insertarJuego(juego1);
 

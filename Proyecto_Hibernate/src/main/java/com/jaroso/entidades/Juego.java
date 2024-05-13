@@ -22,15 +22,15 @@ public class Juego {
     @Enumerated (value = EnumType.STRING)
     private Plataforma plataforma;
 
-    private Integer pegi;
-
     @Enumerated (value = EnumType.STRING)
     private Categoria categoria;
 
-    public Juego(String nombre, Plataforma plataforma, Integer pegi, Categoria categoria) {
+    private Integer pegi;
+
+    public Juego(String nombre, Plataforma plataforma, Categoria categoria, Integer pegi) {
         this.nombre = nombre;
         this.plataforma = plataforma;
-        this.pegi = pegi;
         this.categoria = categoria;
+        this.pegi = pegi;
     }
 }

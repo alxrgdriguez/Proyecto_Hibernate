@@ -24,11 +24,11 @@ public class Partida {
 
     private Integer duracion;
 
-    @ManyToOne
+    @ManyToOne (fetch = FetchType.LAZY)
     @JoinColumn (name = "id_juego")
     private Juego juego;
 
-    @ManyToOne
+    @ManyToOne (fetch = FetchType.LAZY)
     @JoinColumn (name = "id_jugador")
     private Jugador ganador;
 
@@ -44,7 +44,6 @@ public class Partida {
                     referencedColumnName = "id" /*Hace referencia al id del Jugador*/
             )
     )
-
     private List<Jugador> participantes;
 
 }

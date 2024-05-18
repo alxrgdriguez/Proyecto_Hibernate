@@ -19,7 +19,7 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         // Opción 2: utilizando plantillas FXML (Recomendable)
-        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("app-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("juego-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 960, 690);
         stage.setTitle("Hello!");
         stage.setScene(scene);

@@ -7,7 +7,6 @@ import com.jaroso.enums.Plataforma;
 import com.jaroso.repositorios.RepositorioJuego;
 import com.jaroso.repositorios.RepositorioJugador;
 import javafx.application.Application;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -39,7 +38,7 @@ public class App extends Application {
 
     public static void main(String[] args) {
 
-        //Creamos el repositorio
+        //Creamos los repositorio
         RepositorioJugador repositorioJugador = new RepositorioJugador();
         RepositorioJuego repositorioJuego = new RepositorioJuego();
 

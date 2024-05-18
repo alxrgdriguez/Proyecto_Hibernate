@@ -18,25 +18,27 @@ public class Jugador {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String nickJugador;
+    @Column (unique = true)
+    private String nick;
 
     private Integer edad;
 
+    @Column (unique = true)
     private String email;
 
     private String idioma;
 
     private String pais;
 
-    @ManyToOne
+    @ManyToOne (fetch = FetchType.LAZY) /*Relacion unidireccional -> se carga solo el juego*/
     private Juego juegoPreferido;
 
 
     /**
      * Constructor TEST
      */
-    public Jugador(String nickJugador, String email, Integer edad, String pais) {
-        this.nickJugador = nickJugador;
+    public Jugador(String nick, String email, Integer edad, String pais) {
+        this.nick = nick;
         this.email = email;
         this.edad = edad;
         this.pais = pais;

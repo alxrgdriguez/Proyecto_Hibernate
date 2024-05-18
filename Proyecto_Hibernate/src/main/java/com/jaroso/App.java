@@ -7,6 +7,7 @@ import com.jaroso.enums.Plataforma;
 import com.jaroso.repositorios.RepositorioJuego;
 import com.jaroso.repositorios.RepositorioJugador;
 import javafx.application.Application;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -18,7 +19,7 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         // Opción 2: utilizando plantillas FXML (Recomendable)
-        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("hello-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("app-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 960, 690);
         stage.setTitle("Hello!");
         stage.setScene(scene);
@@ -58,4 +59,6 @@ public class App extends Application {
 
 
     }
+
+
 }

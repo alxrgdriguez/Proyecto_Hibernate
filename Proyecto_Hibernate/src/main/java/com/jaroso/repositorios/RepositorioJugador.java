@@ -30,7 +30,8 @@ public class RepositorioJugador {
      */
     public void insertarJugador(Jugador jugador){
         session.beginTransaction();
-        session.persist(jugador);
+        session.save(jugador);
+        //session.persist(jugador); Revisar si es necesario
         session.getTransaction().commit();
     }
 

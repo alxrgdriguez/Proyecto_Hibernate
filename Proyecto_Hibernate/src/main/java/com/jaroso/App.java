@@ -18,9 +18,9 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         // Opción 2: utilizando plantillas FXML (Recomendable)
-        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("juego-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 960, 690);
-        stage.setTitle("Hello!");
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("index-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        stage.setTitle("Proyecto Hibernate");
         stage.setScene(scene);
         stage.show();
     }

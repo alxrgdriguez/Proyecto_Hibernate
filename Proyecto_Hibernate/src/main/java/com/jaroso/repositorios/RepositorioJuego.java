@@ -30,8 +30,7 @@ public class RepositorioJuego {
      */
     public void insertarJuego(Juego juego){
         session.beginTransaction();
-        session.save(juego);
-        //session.persist(juego); Revisar si es necesario
+        session.persist(juego);
         session.getTransaction().commit();
     }
 
@@ -41,6 +40,15 @@ public class RepositorioJuego {
     public Juego findById(Long id){
         var Juego = session.find(com.jaroso.entidades.Jugador.class, id);
         return Juego.getJuegoPreferido();
+    }
+
+    /**
+     * Eliminar por nombre
+     */
+    public Juego deleteByNombre(String nombre){
+        return session.createQuery("Select juego From Juego juego Where juego.nombre = :nombre", Juego.class)
+               .setParameter("nombre", nombre)
+               .uniqueResult();
     }
 
     /**

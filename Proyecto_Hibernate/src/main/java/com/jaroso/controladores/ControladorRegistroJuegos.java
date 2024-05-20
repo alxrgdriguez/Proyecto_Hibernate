@@ -101,15 +101,18 @@ public class ControladorRegistroJuegos implements Initializable {
 
     public void InsertarJuego(MouseEvent mouseEvent) {
         RepositorioJuego rJuego = new RepositorioJuego();
-        System.out.println("asssssssssssssssssssssssssssssssssssssss");
-        Long id = Long.parseLong(tf_IdInsertar.getText());
         String nombre = tf_nombreInsertar.getText();
         Plataforma plataforma = Plataforma.valueOf(cbx_plataformaInsertar.getValue().toString());
         Categoria categoria = Categoria.valueOf(cbx_categoriaInsertar.getValue().toString());
 
         Integer pegi = Integer.parseInt(tf_pegiInsertar.getText());
 
-        Juego juego = new Juego(id, nombre, plataforma, pegi,  categoria);
+        //Juego juego = new Juego(id, nombre, plataforma, pegi,  categoria);
+        Juego juego = new Juego();
+        juego.setNombre(nombre);
+        juego.setPlataforma(plataforma);
+        juego.setCategoria(categoria);
+        juego.setPegi(pegi);
 
         rJuego.insertarJuego(juego);
         t_estadoInsert.setText("Se ha insertado el juego correctamente");
@@ -118,6 +121,23 @@ public class ControladorRegistroJuegos implements Initializable {
         cbx_plataformaInsertar.setValue("");
         cbx_categoriaInsertar.setValue("");
         tf_pegiInsertar.setText("");
+
+    }
+
+
+    //ELIMINAR POR NOMBRE
+    @FXML
+    public TextField tf_nombreEliminar;
+    public Button btn_eliminar;
+    public Text t_estadoEliminar;
+
+    public void eliminarJuego(MouseEvent mouseEvent) {
+        RepositorioJuego rJuego = new RepositorioJuego();
+        String nombre = tf_nombreEliminar.getText();
+        Juego juego = rJuego.deleteByNombre(nombre);
+        rJuego.eliminarJuego(juego);
+        t_estadoEliminar.setText("Se ha eliminado el juego correctamente");
+        tf_nombreEliminar.setText("");
 
     }
 }

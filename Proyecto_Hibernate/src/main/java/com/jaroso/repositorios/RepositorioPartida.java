@@ -30,8 +30,7 @@ public class RepositorioPartida {
      */
     public void insertarPartida(Partida partida){
         session.beginTransaction();
-        session.save(partida);
-        //session.persist(partida); Revisar si es necesario
+        session.persist(partida);
         session.getTransaction().commit();
     }
 

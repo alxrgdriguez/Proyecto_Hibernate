@@ -142,4 +142,7 @@ public class ControladorRegistroJuegos implements Initializable {
         tf_nombreEliminar.setText("");
 
     }
+
+    public void MostrarIdMostrarId(MouseEvent mouseEvent) {
+    }
 }

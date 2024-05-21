@@ -34,7 +34,7 @@
                                             </columns>
                                         </TableView>
                                         <Button fx:id="btn_mostrarTodo" layoutX="482.0" layoutY="16.0" mnemonicParsing="false" onMouseClicked="#MostrarTodos" text="Mostrar Todo" />
-                                        <Button fx:id="btn_buscar" layoutX="138.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#MostrarId" text="Buscar" />
+                                        <Button fx:id="btn_buscar" layoutX="138.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#MostrarIdMostrarId" text="Buscar" />
                                         <Label layoutX="20.0" layoutY="18.0" text="Id" />
                                         <TextField fx:id="campoIdBuscar" layoutX="40.0" layoutY="14.0" prefHeight="26.0" prefWidth="74.0" />
                                     </children>

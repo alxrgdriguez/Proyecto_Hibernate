@@ -36,13 +36,14 @@ public class ControladorRegistroJuegos implements Initializable {
     @FXML
     public TextField campoIdBuscar;
 
+    public Button btn_buscar;
+
     public Button mostrarTodo;
 
     public Button mostrarId;
 
 
     //INSERTAR
-    public TextField tf_IdInsertar;
 
     public TextField tf_nombreInsertar;
 
@@ -86,10 +87,12 @@ public class ControladorRegistroJuegos implements Initializable {
             id = Long.parseLong(campoIdBuscar.getText());
             Juego juego = rJuego.findById(id);
             tablajuego.setItems(FXCollections.observableArrayList(juego));
+
         }catch (Exception e){
             System.out.println("No se encontro el juego con el id: " + id);
             tablajuego.setItems(FXCollections.observableArrayList());
         }
+
 
     }
 
@@ -116,7 +119,6 @@ public class ControladorRegistroJuegos implements Initializable {
 
         rJuego.insertarJuego(juego);
         t_estadoInsert.setText("Se ha insertado el juego correctamente");
-        tf_IdInsertar.setText("");
         tf_nombreInsertar.setText("");
         cbx_plataformaInsertar.setValue("");
         cbx_categoriaInsertar.setValue("");

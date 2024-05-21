@@ -46,9 +46,15 @@ public class RepositorioJuego {
      * Eliminar por nombre
      */
     public Juego deleteByNombre(String nombre){
-        return session.createQuery("Select juego From Juego juego Where juego.nombre = :nombre", Juego.class)
-               .setParameter("nombre", nombre)
-               .uniqueResult();
+        // Normalizamos el nombre: Convertimos a minúsculas y eliminamos espacios en blanco
+        String nombreNormalizado = nombre.toLowerCase().replace(" ", "");
+
+        // Creamos la consulta utilizando funciones SQL para normalizar el nombre en la base de datos
+        return session.createQuery(
+                        "Select juego From Juego juego Where " +
+                                "LOWER(REPLACE(juego.nombre, ' ', '')) = :nombre", Juego.class)
+                .setParameter("nombre", nombreNormalizado)
+                .uniqueResult();
     }
 
     /**

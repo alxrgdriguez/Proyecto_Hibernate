@@ -1,5 +1,8 @@
 package com.jaroso;
 
+import com.jaroso.repositorios.RepositorioJuego;
+import com.jaroso.repositorios.RepositorioJugador;
+import com.jaroso.repositorios.RepositorioPartida;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -32,6 +35,13 @@ public class App extends Application {
 
     public static void main(String[] args) {
 
+        RepositorioJuego repositorioJuego = new RepositorioJuego();
+        RepositorioJugador repositorioJugador = new RepositorioJugador();
+        RepositorioPartida repositorioPartida = new RepositorioPartida();
+
+        repositorioPartida.cerrarSession();
+        repositorioJugador.cerrarSession();
+        repositorioJuego.cerrarSession();
 
         //JAVAFX
         launch();

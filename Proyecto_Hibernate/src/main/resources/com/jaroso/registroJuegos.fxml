@@ -33,8 +33,8 @@
                                                 <TableColumn fx:id="categoriaJuego" text="Categoria" />
                                             </columns>
                                         </TableView>
-                                        <Button fx:id="btn_mostrarTodo" layoutX="482.0" layoutY="16.0" mnemonicParsing="false" onMouseClicked="#MostrarTodos" text="Mostrar Todo" />
-                                        <Button fx:id="btn_buscar" layoutX="138.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#MostrarIdMostrarId" text="Buscar" />
+                                        <Button fx:id="btn_mostrarTodo" layoutX="479.0" layoutY="16.0" mnemonicParsing="false" onMouseClicked="#MostrarTodos" text="Mostrar Todo" />
+                                        <Button fx:id="btn_buscar" layoutX="138.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#MostrarId" text="Buscar" />
                                         <Label layoutX="20.0" layoutY="18.0" text="Id" />
                                         <TextField fx:id="campoIdBuscar" layoutX="40.0" layoutY="14.0" prefHeight="26.0" prefWidth="74.0" />
                                     </children>
@@ -68,7 +68,7 @@
                             <content>
                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="168.0" prefWidth="600.0">
                            <children>
-                              <Label layoutX="135.0" layoutY="35.0" prefHeight="30.0" prefWidth="353.0" text="¿Deseas eliminar un juego?">
+                              <Label layoutX="138.0" layoutY="35.0" prefHeight="30.0" prefWidth="353.0" text="¿Deseas eliminar un juego?">
                                  <font>
                                     <Font size="24.0" />
                                  </font>
@@ -80,7 +80,7 @@
                                     <Font size="16.0" />
                                  </font>
                               </Label>
-                              <Text fill="#4a1bd7" layoutX="165.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Introduce el nombre del juego" wrappingWidth="266.9931640625">
+                              <Text fill="#4a1bd7" layoutX="170.0" layoutY="116.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Introduce el nombre del juego" wrappingWidth="266.9931640625">
                                  <font>
                                     <Font size="17.0" />
                                  </font>

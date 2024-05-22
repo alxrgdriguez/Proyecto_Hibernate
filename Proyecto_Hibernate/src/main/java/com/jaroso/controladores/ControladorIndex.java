@@ -46,4 +46,14 @@ public class ControladorIndex implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
+
+    public void AbrirRegistroJugadores(MouseEvent mouseEvent) throws IOException {
+        //Para abrir el registro de jugadores
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("registroJugadores.fxml"));
+        Stage stage = new Stage();
+        Scene scene = new Scene(fxmlLoader.load());
+        stage.setTitle("Registro de Jugadores");
+        stage.setScene(scene);
+        stage.show();
+    }
 }

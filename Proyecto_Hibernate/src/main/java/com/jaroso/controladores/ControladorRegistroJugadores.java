@@ -6,12 +6,10 @@ import com.jaroso.repositorios.RepositorioJugador;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.text.Text;
 
 import java.net.URL;
 import java.util.List;
@@ -46,6 +44,21 @@ public class ControladorRegistroJugadores implements Initializable {
     public Button mostrarTodo;
 
     public Button mostrarId;
+
+
+    //INSERTAR
+
+    public TextField tf_nombreInsertar;
+
+    public ComboBox cbx_categoriaInsertar;
+
+    public ComboBox cbx_plataformaInsertar;
+
+    public TextField tf_pegiInsertar;
+
+    public Button btn_insertar;
+
+    public Text t_estadoInsert;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

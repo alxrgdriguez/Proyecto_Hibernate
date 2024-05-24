@@ -6,6 +6,8 @@ module Proyecto.Hibernate {
     requires static lombok;
     requires jakarta.persistence;
     requires java.naming;
+    requires java.sql;
+
 
     opens com.jaroso to javafx.fxml;
     opens com.jaroso.entidades;

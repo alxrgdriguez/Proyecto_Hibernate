@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jaroso.controladores.ControladorRegistroPartidas">
+    <children>
+        <Pane prefHeight="400.0" prefWidth="600.0">
+            <children>
+                <TabPane prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
+                    <tabs>
+                        <Tab text="Mostrar">
+                            <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                    <children>
+                                        <TableView fx:id="tablaPartidas" editable="true" layoutY="55.0" prefHeight="318.0" prefWidth="600.0">
+                                            <columns>
+                                                <TableColumn fx:id="idPartida" text="Id" />
+                                                <TableColumn fx:id="fechaHoraPartida" text="Fecha Hora" />
+                                                <TableColumn fx:id="duracionPartida" text="Duracion" />
+                                                <TableColumn fx:id="juegoPartida" text="Juego" />
+                                                <TableColumn fx:id="ganadorPartida" text="Ganador" />
+                                    <TableColumn fx:id="participantesPartida" text="Participantes" />
+                                            </columns>
+                                        </TableView>
+                                        <Button fx:id="btn_mostrarTodo" layoutX="479.0" layoutY="16.0" mnemonicParsing="false" onMouseClicked="#MostrarTodos" text="Mostrar Todo" />
+                                        <Button fx:id="btn_buscar" layoutX="138.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#MostrarId" text="Buscar" />
+                                        <Label layoutX="20.0" layoutY="18.0" text="Id" />
+                                        <TextField fx:id="campoIdBuscar" layoutX="40.0" layoutY="14.0" prefHeight="26.0" prefWidth="74.0" />
+                                    </children>
+                                </AnchorPane>
+                            </content>
+                        </Tab>
+                        <Tab text="Insertar">
+                            <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <Button fx:id="btn_insertar" layoutX="203.0" layoutY="195.0" mnemonicParsing="false" onMouseClicked="#InsertarPartida" text="Insertar" />
+                              <Label layoutX="23.0" layoutY="31.0" text="Fecha Hora" />
+                              <Label layoutX="22.0" layoutY="69.0" text="Duracion" />
+                              <Label layoutX="23.0" layoutY="113.0" text="Juego" />
+                              <Label layoutX="24.0" layoutY="160.0" text="Ganador" />
+                              <Text fx:id="t_estadoInsertar" layoutX="175.0" layoutY="284.0" strokeType="OUTSIDE" strokeWidth="0.0" text="-----" />
+                              <Line endX="381.0" layoutX="185.0" layoutY="235.0" startX="-160.0" />
+                              <Label layoutX="296.0" layoutY="31.0" text="Jugadores" />
+                              <TextField fx:id="tf_duracionInsertar" layoutX="109.0" layoutY="65.0" />
+                              <ComboBox fx:id="cbx_juegoInsertar" layoutX="108.0" layoutY="109.0" prefWidth="150.0" />
+                              <ComboBox fx:id="cbx_ganadorInsertar" layoutX="108.0" layoutY="156.0" prefWidth="150.0" />
+                              <ListView fx:id="lv_JugadoresInsertar" layoutX="380.0" layoutY="35.0" prefHeight="181.0" prefWidth="150.0" />
+                              <DatePicker fx:id="dp_fechaHoraInsertar" layoutX="111.0" layoutY="27.0" prefHeight="26.0" prefWidth="146.0" />
+                           </children></AnchorPane>
+                            </content>
+                        </Tab>
+                  <Tab text="Modificar">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <Button fx:id="btn_modificar" layoutX="266.0" layoutY="204.0" mnemonicParsing="false" onMouseClicked="#modificarPartida" text="Modificar" />
+                              <Text fx:id="t_estadoModificar" layoutX="171.0" layoutY="278.0" strokeType="OUTSIDE" strokeWidth="0.0" text="-----" />
+                              <Line endX="381.0" layoutX="185.0" layoutY="251.0" startX="-160.0" />
+                              <Label fx:id="lbl_idModificar" layoutX="20.0" layoutY="31.0" text="Id" />
+                              <ComboBox fx:id="cbx_idModificar" layoutX="104.0" layoutY="27.0" onAction="#MostrarInfoModifcar" prefWidth="150.0" />
+                              <Label layoutX="18.0" layoutY="76.0" text="Nick" />
+                              <TextField fx:id="tf_nickModificar" layoutX="104.0" layoutY="72.0" />
+                              <Label layoutX="20.0" layoutY="123.0" text="Edad" />
+                              <Label layoutX="18.0" layoutY="164.0" text="Email" />
+                              <Label layoutX="296.0" layoutY="61.0" text="Idioma" />
+                              <Label layoutX="294.0" layoutY="26.0" text="Pais" />
+                              <TextField fx:id="tf_edadModificar" layoutX="107.0" layoutY="119.0" />
+                              <TextField fx:id="tf_emailModificar" layoutX="106.0" layoutY="160.0" />
+                              <TextField fx:id="tf_paisModificar" layoutX="379.0" layoutY="22.0" />
+                              <TextField fx:id="tf_idiomaModificar" layoutX="379.0" layoutY="57.0" />
+                              <Label layoutX="296.0" layoutY="98.0" text="J. Preferido" />
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+                        <Tab text="Eliminar">
+                            <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="168.0" prefWidth="600.0">
+                           <children>
+                              <Label layoutX="138.0" layoutY="35.0" prefHeight="30.0" prefWidth="353.0" text="¿Deseas eliminar un jugador?">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="tf_nickEliminar" layoutX="181.0" layoutY="161.0" prefHeight="24.0" prefWidth="174.0" />
+                              <Button fx:id="btn_eliminar" layoutX="373.0" layoutY="161.0" mnemonicParsing="false" onMouseClicked="#eliminarPartida" prefHeight="24.0" prefWidth="78.0" text="Eliminar" />
+                              <Label layoutX="103.0" layoutY="160.0" prefHeight="21.0" prefWidth="78.0" text="Nick">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <Text fill="#4a1bd7" layoutX="170.0" layoutY="116.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Introduce el nick del jugador" wrappingWidth="266.9931640625">
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font>
+                              </Text>
+                              <Line endX="413.0" layoutX="143.0" layoutY="247.0" startX="-100.0" />
+                              <Text fx:id="t_estadoEliminar" layoutX="223.0" layoutY="319.0" strokeType="OUTSIDE" strokeWidth="0.0" text="-----" />
+                           </children></AnchorPane>
+                            </content>
+                        </Tab>
+                    </tabs>
+                </TabPane>
+            </children>
+        </Pane>
+    </children>
+</AnchorPane>

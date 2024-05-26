@@ -67,6 +67,11 @@ public class ControladorRegistroPartidas implements Initializable {
     public ListView<String> lv_participantesModificar;
     public Text t_estadoModificar;
 
+    //ELIMINAR
+    public TextField tf_idEliminar;
+    public Button btn_eliminar;
+    public Text t_estadoEliminar;
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -148,7 +153,7 @@ public class ControladorRegistroPartidas implements Initializable {
         tf_duracionModificar.setText(partida.getDuracion().toString());
         cbx_juegoModificar.setValue(partida.getJuego().getNombre());
         cbx_ganadorModificar.setValue(partida.getGanador().getNick());
-        //lv_participantesModificar.getItems().addAll(partida.getParticipantes());
+
         for (Jugador j : partida.getParticipantes()) {
             lv_participantesModificar.getSelectionModel().select(j.getNick());
         }
@@ -258,6 +263,17 @@ public class ControladorRegistroPartidas implements Initializable {
         cbx_ganadorModificar.setValue("");
     }
 
+    /**
+     * Eliminar una partida por id
+     * @param mouseEvent
+     */
     public void eliminarPartida(MouseEvent mouseEvent) {
+        RepositorioPartida rPartida = new RepositorioPartida();
+        Long id = 0L;
+        id = Long.parseLong(tf_idEliminar.toString());
+        Partida partida = rPartida.findById(id);
+        rPartida.eliminarPartida(partida);
+        t_estadoEliminar.setText("Se ha eliminado la partida correctamente");
+        tf_idEliminar.setText("");
     }
 }

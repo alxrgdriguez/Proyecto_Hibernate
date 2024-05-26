@@ -38,8 +38,8 @@ public class RepositorioJuego {
      * Busca la primary key
      */
     public Juego findById(Long id){
-        var Juego = session.find(com.jaroso.entidades.Jugador.class, id);
-        return Juego.getJuegoPreferido();
+        var Juego = session.find(com.jaroso.entidades.Juego.class, id);
+        return Juego;
     }
 
     /**

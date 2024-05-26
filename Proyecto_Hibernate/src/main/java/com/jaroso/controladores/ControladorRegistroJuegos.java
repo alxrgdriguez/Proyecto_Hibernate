@@ -9,6 +9,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 
@@ -57,6 +59,21 @@ public class ControladorRegistroJuegos implements Initializable {
 
     public Text t_estadoInsert;
 
+    //MODIFICAR
+    @FXML
+    public TableView<Juego> tv_modificarJuegos;
+
+    public TableColumn<Juego, Long> idJuegoModificar;
+
+    public TableColumn<Juego, String> nombreJuegoModificar;
+
+    public TableColumn<Juego, Integer> pegiJuegoModificar;
+
+    public TableColumn<Juego, String> plataformaJuegoModificar;
+
+    public TableColumn<Juego, String> categoriaJuegoModificar;
+
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         idJuego.setCellValueFactory(new PropertyValueFactory<>("id"));
@@ -71,12 +88,17 @@ public class ControladorRegistroJuegos implements Initializable {
         for (Categoria c : Categoria.values()) {
             cbx_categoriaInsertar.getItems().add(c);
         }
+        cbx_categoriaInsertar.setValue(Categoria.ACCION);
 
         for (Plataforma p : Plataforma.values()) {
             cbx_plataformaInsertar.getItems().add(p);
         }
+        cbx_plataformaInsertar.setValue(Plataforma.PC);
 
+        RepositorioJuego rJuego = new RepositorioJuego();
+        List<Juego> juegos = rJuego.findAll();
 
+        tablajuego.setItems(FXCollections.observableArrayList(juegos));
     }
 
 
@@ -99,7 +121,11 @@ public class ControladorRegistroJuegos implements Initializable {
     public void MostrarTodos(MouseEvent mouseEvent) {
         RepositorioJuego rJuego = new RepositorioJuego();
         List<Juego> juegos = rJuego.findAll();
+
         tablajuego.setItems(FXCollections.observableArrayList(juegos));
+
+
+        tv_modificarJuegos.setItems(FXCollections.observableArrayList(juegos));
     }
 
     public void InsertarJuego(MouseEvent mouseEvent) {
@@ -120,8 +146,8 @@ public class ControladorRegistroJuegos implements Initializable {
         rJuego.insertarJuego(juego);
         t_estadoInsert.setText("Se ha insertado el juego correctamente");
         tf_nombreInsertar.setText("");
-        cbx_plataformaInsertar.setValue("");
-        cbx_categoriaInsertar.setValue("");
+        cbx_plataformaInsertar.setValue(Plataforma.PC);
+        cbx_categoriaInsertar.setValue(Categoria.ACCION);
         tf_pegiInsertar.setText("");
 
     }
@@ -143,6 +169,15 @@ public class ControladorRegistroJuegos implements Initializable {
 
     }
 
-    public void MostrarIdMostrarId(MouseEvent mouseEvent) {
+
+
+    public void ActualizarJuego(KeyEvent keyEvent) {
+
+        if( keyEvent.getCode() == KeyCode.ENTER ) {
+            System.out.println("ENTER");
+        }
+
+
+
     }
 }

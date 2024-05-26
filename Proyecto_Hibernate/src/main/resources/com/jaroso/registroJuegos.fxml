@@ -24,7 +24,7 @@
                             <content>
                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                     <children>
-                                        <TableView fx:id="tablajuego" layoutY="55.0" prefHeight="318.0" prefWidth="600.0">
+                                        <TableView fx:id="tablajuego" editable="true" layoutY="55.0" prefHeight="318.0" prefWidth="600.0">
                                             <columns>
                                                 <TableColumn fx:id="idJuego" text="Id" />
                                                 <TableColumn fx:id="nombreJuego" text="Nombre" />
@@ -61,7 +61,18 @@
                         </Tab>
                         <Tab text="Modificar">
                             <content>
-                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <TableView fx:id="tv_modificarJuegos" editable="true" layoutY="48.0" onKeyPressed="#ActualizarJuego" prefHeight="322.0" prefWidth="600.0">
+                                 <columns>
+                                    <TableColumn fx:id="idJuegoModificar" text="Id" />
+                                    <TableColumn fx:id="nombreJuegoModificar" text="Nombre" />
+                                    <TableColumn fx:id="pegiJuegoModificar" text="Pegi" />
+                                    <TableColumn fx:id="plataformaJuegoModificar" text="Plataforma" />
+                                    <TableColumn fx:id="categoriaJuegoModificar" text="Categoria" />
+                                 </columns>
+                              </TableView>
+                           </children></AnchorPane>
                             </content>
                         </Tab>
                         <Tab text="Eliminar">

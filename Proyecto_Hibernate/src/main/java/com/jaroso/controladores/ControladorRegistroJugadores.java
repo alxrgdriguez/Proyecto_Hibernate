@@ -36,48 +36,9 @@ public class ControladorRegistroJugadores implements Initializable {
 
     public TableColumn<Jugador, Juego> preferidoJugador;
 
-    @FXML
-    public TextField campoIdBuscar;
-
-    public Button btn_buscar;
-
-    public Button mostrarTodo;
-
-    public Button mostrarId;
-
-
-    //INSERTAR
-
-    public TextField tf_nombreInsertar;
-
-    public ComboBox cbx_categoriaInsertar;
-
-    public ComboBox cbx_plataformaInsertar;
-
-    public TextField tf_pegiInsertar;
-
-    public Button btn_insertar;
-
-    public Text t_estadoInsert;
 
     @Override
-    public void initialize(URL location, ResourceBundle resources) {
-
-        idJugador.setCellValueFactory(new PropertyValueFactory<>("id"));
-        nickJugador.setCellValueFactory(new PropertyValueFactory<>("nick"));
-        edadJugador.setCellValueFactory(new PropertyValueFactory<>("edad"));
-        emailJugador.setCellValueFactory(new PropertyValueFactory<>("email"));
-        idiomaJugador.setCellValueFactory(new PropertyValueFactory<>("idioma"));
-        paisJugador.setCellValueFactory(new PropertyValueFactory<>("pais"));
-        preferidoJugador.setCellValueFactory(new PropertyValueFactory<>("juegoPreferido"));
+    public void initialize(URL url, ResourceBundle resourceBundle) {
 
     }
-
-    public void MostrarId(MouseEvent mouseEvent) {
-    }
-
-    public void MostrarTodos(MouseEvent mouseEvent) {
-    }
-
-
 }

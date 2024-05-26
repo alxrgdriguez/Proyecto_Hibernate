@@ -73,4 +73,14 @@ public class RepositorioJuego {
     public List<Juego> findAll(){
         return session.createQuery("Select juego From Juego juego", Juego.class).list();
     }
+
+    /**
+     * Actualiza un objeto Juego en la BBDD
+     * @param juego
+     */
+    public void updateJuego(Juego juego){
+        session.beginTransaction();
+        session.update(juego);
+        session.getTransaction().commit();
+    }
 }

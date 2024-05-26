@@ -5,11 +5,11 @@ import com.jaroso.enums.Categoria;
 import com.jaroso.enums.Plataforma;
 import com.jaroso.repositorios.RepositorioJuego;
 import javafx.collections.FXCollections;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
@@ -61,17 +61,21 @@ public class ControladorRegistroJuegos implements Initializable {
 
     //MODIFICAR
     @FXML
-    public TableView<Juego> tv_modificarJuegos;
+    public TextField tf_nombreModificar;
+    @FXML
+    public ComboBox cbx_idModificar;
+    @FXML
+    public ComboBox cbx_categoriaModificar;
+    @FXML
+    public ComboBox cbx_plataformaModificar;
 
-    public TableColumn<Juego, Long> idJuegoModificar;
+    public TextField tf_pegiModificar;
 
-    public TableColumn<Juego, String> nombreJuegoModificar;
+    public Button btn_modificar;
 
-    public TableColumn<Juego, Integer> pegiJuegoModificar;
+    public Text t_estadoModificar;
 
-    public TableColumn<Juego, String> plataformaJuegoModificar;
 
-    public TableColumn<Juego, String> categoriaJuegoModificar;
 
 
     @Override
@@ -82,23 +86,34 @@ public class ControladorRegistroJuegos implements Initializable {
         pegiJuego.setCellValueFactory(new PropertyValueFactory<>("pegi"));
         categoriaJuego.setCellValueFactory(new PropertyValueFactory<>("categoria"));
 
+
+
         mostrarId = new Button("Mostrar Id");
         mostrarTodo = new Button("Mostrar Todo");
 
         for (Categoria c : Categoria.values()) {
             cbx_categoriaInsertar.getItems().add(c);
+            cbx_categoriaModificar.getItems().add(c);
         }
         cbx_categoriaInsertar.setValue(Categoria.ACCION);
+        cbx_categoriaModificar.setValue(Categoria.ACCION);
 
         for (Plataforma p : Plataforma.values()) {
             cbx_plataformaInsertar.getItems().add(p);
+            cbx_plataformaModificar.getItems().add(p);
         }
         cbx_plataformaInsertar.setValue(Plataforma.PC);
+        cbx_plataformaModificar.setValue(Plataforma.PC);
 
         RepositorioJuego rJuego = new RepositorioJuego();
         List<Juego> juegos = rJuego.findAll();
 
         tablajuego.setItems(FXCollections.observableArrayList(juegos));
+
+        for (Juego j : juegos) {
+            cbx_idModificar.getItems().add(j.getId());
+        }
+
     }
 
 
@@ -124,8 +139,6 @@ public class ControladorRegistroJuegos implements Initializable {
 
         tablajuego.setItems(FXCollections.observableArrayList(juegos));
 
-
-        tv_modificarJuegos.setItems(FXCollections.observableArrayList(juegos));
     }
 
     public void InsertarJuego(MouseEvent mouseEvent) {
@@ -136,7 +149,6 @@ public class ControladorRegistroJuegos implements Initializable {
 
         Integer pegi = Integer.parseInt(tf_pegiInsertar.getText());
 
-        //Juego juego = new Juego(id, nombre, plataforma, pegi,  categoria);
         Juego juego = new Juego();
         juego.setNombre(nombre);
         juego.setPlataforma(plataforma);
@@ -169,15 +181,43 @@ public class ControladorRegistroJuegos implements Initializable {
 
     }
 
+    public void MostrarInfoModifcar(ActionEvent actionEvent) {
+        Long id = Long.parseLong(cbx_idModificar.getValue().toString());
+        RepositorioJuego rJuego = new RepositorioJuego();
+        Juego juego = rJuego.findById(id);
 
+        tf_nombreModificar.setText(juego.getNombre());
+        cbx_categoriaModificar.setValue(juego.getCategoria());
+        cbx_plataformaModificar.setValue(juego.getPlataforma());
+        tf_pegiModificar.setText(juego.getPegi().toString());
 
-    public void ActualizarJuego(KeyEvent keyEvent) {
+        System.out.println();
+    }
 
-        if( keyEvent.getCode() == KeyCode.ENTER ) {
-            System.out.println("ENTER");
-        }
+    public void modificarJuego(MouseEvent mouseEvent) {
+        Long id = Long.parseLong(cbx_idModificar.getValue().toString());
+        String nombre = tf_nombreModificar.getText();
+        Plataforma plataforma = Plataforma.valueOf(cbx_plataformaModificar.getValue().toString());
+        Categoria categoria = Categoria.valueOf(cbx_categoriaModificar.getValue().toString());
+        Integer pegi = Integer.parseInt(tf_pegiModificar.getText());
 
+        Juego juego = new Juego();
+        juego.setId(id);
+        juego.setNombre(nombre);
+        juego.setPlataforma(plataforma);
+        juego.setCategoria(categoria);
+        juego.setPegi(pegi);
 
+        RepositorioJuego rJuego = new RepositorioJuego();
+        rJuego.updateJuego(juego);
+        t_estadoModificar.setText("Se ha modificado el juego correctamente");
+        cbx_idModificar.setValue(juego.getId().toString());
+        tf_nombreModificar.setText("");
+        cbx_categoriaModificar.setValue(juego.getCategoria().toString());
+        cbx_plataformaModificar.setValue(juego.getPlataforma().toString());
+        tf_pegiModificar.setText("");
 
     }
+
+
 }

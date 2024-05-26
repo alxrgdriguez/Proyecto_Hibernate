@@ -4,6 +4,7 @@ import com.jaroso.entidades.Juego;
 import com.jaroso.entidades.Jugador;
 import com.jaroso.repositorios.RepositorioJugador;
 import javafx.collections.FXCollections;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -40,5 +41,23 @@ public class ControladorRegistroJugadores implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+    }
+
+    public void MostrarTodos(MouseEvent mouseEvent) {
+    }
+
+    public void MostrarId(MouseEvent mouseEvent) {
+    }
+
+    public void InsertarJugador(MouseEvent mouseEvent) {
+    }
+
+    public void modificarJugador(MouseEvent mouseEvent) {
+    }
+
+    public void MostrarInfoModifcar(ActionEvent actionEvent) {
+    }
+
+    public void eliminarJugador(MouseEvent mouseEvent) {
     }
 }

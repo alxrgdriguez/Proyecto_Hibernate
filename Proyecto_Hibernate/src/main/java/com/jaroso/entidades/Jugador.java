@@ -34,10 +34,12 @@ public class Jugador {
     /**
      * Constructor TEST
      */
-    public Jugador(String nick, String email, Integer edad, String pais) {
+    public Jugador(String nick, String email, Integer edad, String idioma, String pais, Juego juegoPreferido) {
         this.nick = nick;
         this.email = email;
         this.edad = edad;
+        this.idioma = idioma;
         this.pais = pais;
+        this.juegoPreferido = juegoPreferido;
     }
 }

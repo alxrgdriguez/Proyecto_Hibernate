@@ -43,6 +43,14 @@ public class RepositorioJuego {
     }
 
     /**
+     * Busca por el nombre
+     */
+    public Juego findByName(String nombre){
+        var Juego = session.find(com.jaroso.entidades.Juego.class, nombre);
+        return Juego;
+    }
+
+    /**
      * Eliminar por nombre
      */
     public Juego deleteByNombre(String nombre){

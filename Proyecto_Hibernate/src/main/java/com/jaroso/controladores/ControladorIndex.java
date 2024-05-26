@@ -56,4 +56,14 @@ public class ControladorIndex implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
+
+    public void AbrirRegistroJPartidas(MouseEvent mouseEvent) throws IOException {
+        //Para abrir el registro de jugadores
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("registroPartidas.fxml"));
+        Stage stage = new Stage();
+        Scene scene = new Scene(fxmlLoader.load());
+        stage.setTitle("Registro de Partidas");
+        stage.setScene(scene);
+        stage.show();
+    }
 }

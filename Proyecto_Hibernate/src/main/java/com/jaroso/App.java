@@ -1,6 +1,8 @@
 package com.jaroso;
 
 import com.jaroso.entidades.Juego;
+import com.jaroso.entidades.Jugador;
+import com.jaroso.entidades.Partida;
 import com.jaroso.enums.Categoria;
 import com.jaroso.enums.Plataforma;
 import com.jaroso.repositorios.RepositorioJuego;
@@ -12,6 +14,8 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.util.List;
 
 public class App extends Application {
 
@@ -61,6 +65,30 @@ public class App extends Application {
             repositorioJuego.insertarJuego(juego);
         }
 
+        for (int i = 1; i <= 50; i++) {
+            int aleatorioEdad = numaleatorio(4, 120);
+            String aleatorioNick = "Jugador " + i;
+            String aleatorioEmail = "email" + i + "@gmail.com";
+            String aleatorioIdioma = "Idioma " + i;
+            String aleatorioPais = "Pais " + i;
+
+            Juego juegoPreferido = repositorioJuego.findById(Long.parseLong(String.valueOf(numaleatorio(0,50))));
+
+            Jugador jugador = new Jugador(aleatorioNick, aleatorioEmail, aleatorioEdad, aleatorioIdioma, aleatorioPais, juegoPreferido);
+            repositorioJugador.insertarJugador(jugador);
+        }
+
+        for (int i = 1; i <= 50; i++) {
+            int aleatorioDuracion = numaleatorio(1, 60);
+            LocalDateTime fechaHora = LocalDateTime.now().minusDays(aleatorioDuracion);
+
+            Juego juegoPartida = repositorioJuego.findById(Long.parseLong(String.valueOf(numaleatorio(0,50))));
+            Jugador jugadorGanador = repositorioJugador.findById(Long.parseLong(String.valueOf(numaleatorio(0,50))));
+            List<Jugador> participantes = repositorioJugador.findAll();
+
+            Partida partida = new Partida(fechaHora, aleatorioDuracion, juegoPartida, jugadorGanador, participantes);
+            repositorioPartida.insertarPartida(partida);
+        }
         repositorioPartida.cerrarSession();
         repositorioJugador.cerrarSession();
         repositorioJuego.cerrarSession();

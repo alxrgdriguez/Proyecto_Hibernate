@@ -24,14 +24,15 @@
                             <content>
                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                     <children>
-                                        <TableView fx:id="tablajuego" editable="true" layoutY="55.0" prefHeight="318.0" prefWidth="600.0">
+                                        <TableView fx:id="tablaJugadores" editable="true" layoutY="55.0" prefHeight="318.0" prefWidth="600.0">
                                             <columns>
                                                 <TableColumn fx:id="idJugador" text="Id" />
-                                                <TableColumn fx:id="nickJuagador" text="Nick" />
+                                                <TableColumn fx:id="nickJugador" text="Nick" />
                                                 <TableColumn fx:id="edadJugador" text="Edad" />
                                                 <TableColumn fx:id="emailJugador" text="Email" />
                                                 <TableColumn fx:id="idiomaJugador" text="Idioma" />
                                     <TableColumn fx:id="paisJugador" text="Pais" />
+                                    <TableColumn fx:id="juegoPreferido" text="J. Preferido" />
                                             </columns>
                                         </TableView>
                                         <Button fx:id="btn_mostrarTodo" layoutX="479.0" layoutY="16.0" mnemonicParsing="false" onMouseClicked="#MostrarTodos" text="Mostrar Todo" />
@@ -46,19 +47,21 @@
                             <content>
                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
-                              <Button fx:id="btn_insertar" layoutX="237.0" layoutY="251.0" mnemonicParsing="false" onMouseClicked="#InsertarJugador" text="Insertar" />
+                              <Button fx:id="btn_insertar" layoutX="232.0" layoutY="173.0" mnemonicParsing="false" onMouseClicked="#InsertarJugador" text="Insertar" />
                               <Label layoutX="23.0" layoutY="31.0" text="Nick" />
                               <Label layoutX="22.0" layoutY="69.0" text="Edad" />
                               <Label layoutX="23.0" layoutY="113.0" text="Email" />
-                              <Label layoutX="25.0" layoutY="164.0" text="Idioma" />
-                              <TextField fx:id="tf_eamilInsertar" layoutX="110.0" layoutY="109.0" />
-                              <TextField fx:id="tf_idiomaInsertar" layoutX="109.0" layoutY="163.0" />
-                              <Text fx:id="t_estadoInsertar" layoutX="173.0" layoutY="345.0" strokeType="OUTSIDE" strokeWidth="0.0" text="-----" />
-                              <Line endX="381.0" layoutX="183.0" layoutY="296.0" startX="-160.0" />
-                              <Label layoutX="25.0" layoutY="213.0" text="Pais" />
-                              <TextField fx:id="tf_paisInsertar" layoutX="109.0" layoutY="209.0" />
+                              <Label layoutX="300.0" layoutY="18.0" text="Idioma" />
+                              <TextField fx:id="tf_emailInsertar" layoutX="110.0" layoutY="109.0" />
+                              <TextField fx:id="tf_idiomaInsertar" layoutX="384.0" layoutY="17.0" />
+                              <Text fx:id="t_estadoInsertar" layoutX="175.0" layoutY="284.0" strokeType="OUTSIDE" strokeWidth="0.0" text="-----" />
+                              <Line endX="381.0" layoutX="185.0" layoutY="235.0" startX="-160.0" />
+                              <Label layoutX="300.0" layoutY="67.0" text="Pais" />
+                              <TextField fx:id="tf_paisInsertar" layoutX="384.0" layoutY="63.0" />
                               <TextField fx:id="tf_edadInsertar" layoutX="109.0" layoutY="65.0" />
                               <TextField fx:id="tf_nickInsertar" layoutX="109.0" layoutY="27.0" />
+                              <Label layoutX="296.0" layoutY="113.0" text="J. Preferido" />
+                              <ComboBox fx:id="cbx_jpreferidoInsertar" layoutX="384.0" layoutY="109.0" prefWidth="150.0" />
                            </children></AnchorPane>
                             </content>
                         </Tab>
@@ -66,21 +69,23 @@
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
-                              <Button fx:id="btn_modificar" layoutX="209.0" layoutY="282.0" mnemonicParsing="false" onMouseClicked="#modificarJugador" text="Modificar" />
-                              <Text fx:id="t_estadoModificar" layoutX="170.0" layoutY="347.0" strokeType="OUTSIDE" strokeWidth="0.0" text="-----" />
-                              <Line endX="381.0" layoutX="184.0" layoutY="320.0" startX="-160.0" />
+                              <Button fx:id="btn_modificar" layoutX="266.0" layoutY="204.0" mnemonicParsing="false" onMouseClicked="#modificarJugador" text="Modificar" />
+                              <Text fx:id="t_estadoModificar" layoutX="171.0" layoutY="278.0" strokeType="OUTSIDE" strokeWidth="0.0" text="-----" />
+                              <Line endX="381.0" layoutX="185.0" layoutY="251.0" startX="-160.0" />
                               <Label fx:id="lbl_idModificar" layoutX="20.0" layoutY="31.0" text="Id" />
                               <ComboBox fx:id="cbx_idModificar" layoutX="104.0" layoutY="27.0" onAction="#MostrarInfoModifcar" prefWidth="150.0" />
                               <Label layoutX="18.0" layoutY="76.0" text="Nick" />
                               <TextField fx:id="tf_nickModificar" layoutX="104.0" layoutY="72.0" />
                               <Label layoutX="20.0" layoutY="123.0" text="Edad" />
-                              <Label layoutX="19.0" layoutY="157.0" text="Email" />
-                              <Label layoutX="24.0" layoutY="235.0" text="Idioma" />
-                              <Label layoutX="22.0" layoutY="200.0" text="Pais" />
+                              <Label layoutX="18.0" layoutY="164.0" text="Email" />
+                              <Label layoutX="296.0" layoutY="61.0" text="Idioma" />
+                              <Label layoutX="294.0" layoutY="26.0" text="Pais" />
                               <TextField fx:id="tf_edadModificar" layoutX="107.0" layoutY="119.0" />
-                              <TextField fx:id="tf_emailModificar" layoutX="107.0" layoutY="153.0" />
-                              <TextField fx:id="tf_paisModificar" layoutX="107.0" layoutY="196.0" />
-                              <TextField fx:id="tf_idiomaModificar" layoutX="107.0" layoutY="231.0" />
+                              <TextField fx:id="tf_emailModificar" layoutX="106.0" layoutY="160.0" />
+                              <TextField fx:id="tf_paisModificar" layoutX="379.0" layoutY="22.0" />
+                              <TextField fx:id="tf_idiomaModificar" layoutX="379.0" layoutY="57.0" />
+                              <Label layoutX="296.0" layoutY="98.0" text="J. Preferido" />
+                              <ComboBox fx:id="cbx_jpreferidoModificar" layoutX="378.0" layoutY="94.0" prefWidth="150.0" />
                            </children>
                         </AnchorPane>
                      </content>
@@ -94,7 +99,7 @@
                                     <Font size="24.0" />
                                  </font>
                               </Label>
-                              <TextField fx:id="tf_nombreEliminar" layoutX="181.0" layoutY="161.0" prefHeight="24.0" prefWidth="174.0" />
+                              <TextField fx:id="tf_nickEliminar" layoutX="181.0" layoutY="161.0" prefHeight="24.0" prefWidth="174.0" />
                               <Button fx:id="btn_eliminar" layoutX="373.0" layoutY="161.0" mnemonicParsing="false" onMouseClicked="#eliminarJugador" prefHeight="24.0" prefWidth="78.0" text="Eliminar" />
                               <Label layoutX="103.0" layoutY="160.0" prefHeight="21.0" prefWidth="78.0" text="Nick">
                                  <font>

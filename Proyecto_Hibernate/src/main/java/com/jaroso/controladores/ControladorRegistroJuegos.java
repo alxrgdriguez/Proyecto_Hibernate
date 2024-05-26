@@ -40,10 +40,6 @@ public class ControladorRegistroJuegos implements Initializable {
 
     public Button btn_buscar;
 
-    public Button mostrarTodo;
-
-    public Button mostrarId;
-
 
     //INSERTAR
 
@@ -88,8 +84,6 @@ public class ControladorRegistroJuegos implements Initializable {
 
 
 
-        mostrarId = new Button("Mostrar Id");
-        mostrarTodo = new Button("Mostrar Todo");
 
         for (Categoria c : Categoria.values()) {
             cbx_categoriaInsertar.getItems().add(c);
@@ -190,8 +184,6 @@ public class ControladorRegistroJuegos implements Initializable {
         cbx_categoriaModificar.setValue(juego.getCategoria());
         cbx_plataformaModificar.setValue(juego.getPlataforma());
         tf_pegiModificar.setText(juego.getPegi().toString());
-
-        System.out.println();
     }
 
     public void modificarJuego(MouseEvent mouseEvent) {

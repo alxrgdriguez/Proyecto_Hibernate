@@ -24,8 +24,8 @@
             <Line endX="46.0" endY="41.0" layoutX="244.0" layoutY="171.0" startX="46.0" startY="-33.800018310546875" />
             <Text layoutX="39.0" layoutY="239.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ELIJA LA OPCION QUE MAS TE INTERESE PARA BUSCAR EN LA BASE DE DATOS" wrappingWidth="546.3975830078125" />
             <Button layoutX="103.0" layoutY="276.0" mnemonicParsing="false" onMouseClicked="#AbrirRegistroJuegos" prefHeight="25.0" prefWidth="161.0" text="Registro de Juegos" />
-            <Button layoutX="352.0" layoutY="276.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="134.0" text="Registro de Partidas" />
-            <Button layoutX="103.0" layoutY="328.0" mnemonicParsing="false" onMouseClicked="#AbrirRegistroJugadores" text="Registro de Jugadores" />
+            <Button layoutX="352.0" layoutY="276.0" mnemonicParsing="false" onMouseClicked="#AbrirRegistroJPartidas" prefHeight="25.0" prefWidth="134.0" text="Registro de Partidas" />
+            <Button layoutX="103.0" layoutY="328.0" mnemonicParsing="false" onMouseClicked="#AbrirRegistroJugadores" prefHeight="25.0" prefWidth="161.0" text="Registro de Jugadores" />
             <Button layoutX="352.0" layoutY="328.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="134.0" text="Consultar Estadisticas" />
          </children>
       </Pane>

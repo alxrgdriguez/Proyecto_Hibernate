@@ -43,8 +43,11 @@ public class Partida {
     )
     private List<Jugador> participantes;
 
-    public Partida(LocalDateTime fechaHora, Integer duracion) {
+    public Partida(LocalDateTime fechaHora, Integer duracion, Juego juego, Jugador ganador, List<Jugador> participantes) {
         this.fechaHora = fechaHora;
         this.duracion = duracion;
+        this.juego = juego;
+        this.ganador = ganador;
+        this.participantes = participantes;
     }
 }

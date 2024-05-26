@@ -1,6 +1,7 @@
 package com.jaroso.repositorios;
 
 import com.jaroso.HibernateUtil;
+import com.jaroso.entidades.Juego;
 import com.jaroso.entidades.Jugador;
 import org.hibernate.Session;
 
@@ -43,6 +44,21 @@ public class RepositorioJugador {
     }
 
     /**
+     * Eliminar por nick
+     */
+    public Jugador deleteByNick(String nick){
+        // Normalizamos el nombre: Convertimos a minúsculas y eliminamos espacios en blanco
+        String nickNormalizado = nick.toLowerCase().replace(" ", "");
+
+        // Creamos la consulta utilizando funciones SQL para normalizar el nombre en la base de datos
+        return session.createQuery(
+                        "Select jugador From Jugador jugador Where " +
+                                "LOWER(REPLACE(jugador.nick, ' ', '')) = :nick", Jugador.class)
+                .setParameter("nick", nickNormalizado)
+                .uniqueResult();
+    }
+
+    /**
      * Elimina un objeto jugador en la base de datos
      */
     public void eliminarJugador(Jugador jugador){
@@ -57,5 +73,15 @@ public class RepositorioJugador {
      */
     public List<Jugador> findAll(){
         return session.createQuery("Select jugador From Jugador jugador", Jugador.class).list();
+    }
+
+    /**
+     * Actualiza un objeto Jugador en la BBDD
+     * @param jugador
+     */
+    public void updateJugador(Jugador jugador){
+        session.beginTransaction();
+        session.update(jugador);
+        session.getTransaction().commit();
     }
 }

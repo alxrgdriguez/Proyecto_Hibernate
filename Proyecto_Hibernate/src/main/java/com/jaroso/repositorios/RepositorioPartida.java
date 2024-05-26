@@ -57,5 +57,15 @@ public class RepositorioPartida {
     public List<Partida> findAll(){
         return session.createQuery("Select partida From Partida partida", Partida.class).list();
     }
+
+    /**
+     * Actualiza un objeto Partida en la BBDD
+     * @param partida
+     */
+    public void updatePartida(Partida partida){
+        session.beginTransaction();
+        session.update(partida);
+        session.getTransaction().commit();
+    }
 }
 

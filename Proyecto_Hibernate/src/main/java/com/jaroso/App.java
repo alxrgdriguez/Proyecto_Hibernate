@@ -15,6 +15,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 public class App extends Application {
@@ -84,7 +85,10 @@ public class App extends Application {
 
             Juego juegoPartida = repositorioJuego.findById(Long.parseLong(String.valueOf(numaleatorio(0,50))));
             Jugador jugadorGanador = repositorioJugador.findById(Long.parseLong(String.valueOf(numaleatorio(0,50))));
-            List<Jugador> participantes = repositorioJugador.findAll();
+            List<Jugador> participantes = new ArrayList<>();
+            participantes.add(repositorioJugador.findById(Long.parseLong(String.valueOf(numaleatorio(0,50)))));
+            participantes.add(repositorioJugador.findById(Long.parseLong(String.valueOf(numaleatorio(0,50)))));
+            participantes.add(repositorioJugador.findById(Long.parseLong(String.valueOf(numaleatorio(0,50)))));
 
             Partida partida = new Partida(fechaHora, aleatorioDuracion, juegoPartida, jugadorGanador, participantes);
             repositorioPartida.insertarPartida(partida);

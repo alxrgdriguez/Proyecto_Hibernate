@@ -18,8 +18,10 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 
 import java.net.URL;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -52,10 +54,18 @@ public class ControladorRegistroPartidas implements Initializable {
     public TextField tf_duracionInsertar;
     public ComboBox cbx_juegoInsertar;
     public ComboBox cbx_ganadorInsertar;
-    public ListView<Jugador> lv_JugadoresInsertar;
+    public ListView<String> lv_JugadoresInsertar;
     public Text t_estadoInsertar;
 
 
+    //MODIFICAR
+    public ComboBox cbx_idModificar;
+    public DatePicker dp_fechaModificar;
+    public TextField tf_duracionModificar;
+    public ComboBox cbx_juegoModificar;
+    public ComboBox cbx_ganadorModificar;
+    public ListView<String> lv_participantesModificar;
+    public Text t_estadoModificar;
 
 
     @Override
@@ -68,7 +78,7 @@ public class ControladorRegistroPartidas implements Initializable {
         participantesPartida.setCellValueFactory(new PropertyValueFactory<>("participantes"));
 
         lv_JugadoresInsertar.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-
+        lv_participantesModificar.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
 
         RepositorioPartida rPartida = new RepositorioPartida();
         List<Partida> partidas = rPartida.findAll();
@@ -80,6 +90,7 @@ public class ControladorRegistroPartidas implements Initializable {
 
         for (Juego j : juegos) {
             cbx_juegoInsertar.getItems().add(j.getNombre());
+            cbx_juegoModificar.getItems().add(j.getNombre());
         }
 
         RepositorioJugador rJugador = new RepositorioJugador();
@@ -87,7 +98,10 @@ public class ControladorRegistroPartidas implements Initializable {
 
         for (Jugador j : jugadores) {
             cbx_ganadorInsertar.getItems().add(j.getNick());
-            lv_JugadoresInsertar.getItems().add(j);
+            lv_JugadoresInsertar.getItems().add(j.getNick());
+            lv_participantesModificar.getItems().add(j.getNick());
+            cbx_idModificar.getItems().add(j.getId());
+            cbx_ganadorModificar.getItems().add(j.getNick());
         }
     }
 
@@ -118,11 +132,26 @@ public class ControladorRegistroPartidas implements Initializable {
 
 
 
-
-
-
     public void MostrarInfoModifcar(ActionEvent actionEvent) {
+        lv_participantesModificar.getSelectionModel().clearSelection();
+        Long id = 0L;
+        try {
+            id = Long.parseLong(cbx_idModificar.getValue().toString());
+        }catch (Exception e){
+            return;
+        }
 
+        RepositorioPartida rPartida = new RepositorioPartida();
+        Partida partida = rPartida.findById(id);
+
+        dp_fechaModificar.setValue(partida.getFechaHora().toLocalDate());
+        tf_duracionModificar.setText(partida.getDuracion().toString());
+        cbx_juegoModificar.setValue(partida.getJuego().getNombre());
+        cbx_ganadorModificar.setValue(partida.getGanador().getNick());
+        //lv_participantesModificar.getItems().addAll(partida.getParticipantes());
+        for (Jugador j : partida.getParticipantes()) {
+            lv_participantesModificar.getSelectionModel().select(j.getNick());
+        }
     }
 
 
@@ -156,7 +185,15 @@ public class ControladorRegistroPartidas implements Initializable {
             }
         }
 
-        List<Jugador> participantes = lv_JugadoresInsertar.getSelectionModel().getSelectedItems();
+        List<Jugador> participantes = new ArrayList<>();
+
+        for (String nick : lv_JugadoresInsertar.getSelectionModel().getSelectedItems()) {
+            for (Jugador jugador : jugadores) {
+                if (jugador.getNick().equals(nick)) {
+                    participantes.add(jugador);
+                }
+            }
+        }
 
         Partida partida = new Partida(fechaHora, duracion, juego, ganadorPartida, participantes);
         rPartida.insertarPartida(partida);
@@ -166,10 +203,59 @@ public class ControladorRegistroPartidas implements Initializable {
         cbx_juegoInsertar.setValue("");
         cbx_ganadorInsertar.setValue("");
         t_estadoInsertar.setText("Se ha insertado la partida correctamente");
+        cbx_idModificar.setValue("1");
     }
 
 
     public void modificarPartida(MouseEvent mouseEvent) {
+        RepositorioPartida rPartida = new RepositorioPartida();
+        RepositorioJuego rJuego = new RepositorioJuego();
+        RepositorioJugador rJugador = new RepositorioJugador();
+        Long id = Long.parseLong(cbx_idModificar.getValue().toString());
+        LocalTime ahora = LocalTime.now();
+        LocalDateTime fechaHora = LocalDateTime.of(dp_fechaModificar.getValue(), ahora);
+        Integer duracion = Integer.parseInt(tf_duracionModificar.getText());
+        String nombreJuego = cbx_juegoModificar.getValue().toString();
+        Juego juego = null;
+        for(Juego j : rJuego.findAll()){
+            if(j.getNombre().equals(nombreJuego)){
+                juego = j;
+                break;
+            }
+        }
+
+        String nickGanador = cbx_ganadorModificar.getValue().toString();
+        Jugador ganadorPartida = null;
+        for (Jugador jugador : rJugador.findAll()) {
+            if (jugador.getNick().equals(nickGanador)) {
+                ganadorPartida = jugador;
+                break;
+            }
+        }
+
+        List<Jugador> participantes = rJugador.findAll();
+        List<Jugador> participantesModificar = new ArrayList<>();
+        for (String nick : lv_participantesModificar.getSelectionModel().getSelectedItems()) {
+            for (Jugador jugador : participantes) {
+                if (jugador.getNick().equals(nick)) {
+                    participantesModificar.add(jugador);
+                }
+            }
+        }
+
+
+
+        Partida partida = new Partida(fechaHora, duracion, juego, ganadorPartida, participantesModificar);
+
+        partida.setId(id);
+
+        rPartida.updatePartida(partida);
+        t_estadoModificar.setText("Se ha modificado la partida correctamente");
+        cbx_idModificar.setValue("");
+        tf_duracionModificar.setText("");
+        dp_fechaModificar.setValue(null);
+        cbx_juegoModificar.setValue("");
+        cbx_ganadorModificar.setValue("");
     }
 
     public void eliminarPartida(MouseEvent mouseEvent) {

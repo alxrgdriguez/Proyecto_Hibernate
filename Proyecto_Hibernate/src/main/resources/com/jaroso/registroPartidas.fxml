@@ -68,22 +68,21 @@
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
-                              <Button fx:id="btn_modificar" layoutX="266.0" layoutY="204.0" mnemonicParsing="false" onMouseClicked="#modificarPartida" text="Modificar" />
-                              <Text fx:id="t_estadoModificar" layoutX="171.0" layoutY="278.0" strokeType="OUTSIDE" strokeWidth="0.0" text="-----" />
-                              <Line endX="381.0" layoutX="185.0" layoutY="251.0" startX="-160.0" />
+                              <Button fx:id="btn_modificar" layoutX="280.0" layoutY="240.0" mnemonicParsing="false" onMouseClicked="#modificarPartida" text="Modificar" />
+                              <Text fx:id="t_estadoModificar" layoutX="171.0" layoutY="302.0" strokeType="OUTSIDE" strokeWidth="0.0" text="-----" />
+                              <Line endX="381.0" layoutX="185.0" layoutY="275.0" startX="-160.0" />
                               <Label fx:id="lbl_idModificar" layoutX="20.0" layoutY="31.0" text="Id" />
                               <ComboBox fx:id="cbx_idModificar" layoutX="104.0" layoutY="27.0" onAction="#MostrarInfoModifcar" prefWidth="150.0" />
-                              <Label layoutX="18.0" layoutY="76.0" text="Nick" />
-                              <TextField fx:id="tf_nickModificar" layoutX="104.0" layoutY="72.0" />
-                              <Label layoutX="20.0" layoutY="123.0" text="Edad" />
-                              <Label layoutX="18.0" layoutY="164.0" text="Email" />
-                              <Label layoutX="296.0" layoutY="61.0" text="Idioma" />
-                              <Label layoutX="294.0" layoutY="26.0" text="Pais" />
-                              <TextField fx:id="tf_edadModificar" layoutX="107.0" layoutY="119.0" />
-                              <TextField fx:id="tf_emailModificar" layoutX="106.0" layoutY="160.0" />
-                              <TextField fx:id="tf_paisModificar" layoutX="379.0" layoutY="22.0" />
-                              <TextField fx:id="tf_idiomaModificar" layoutX="379.0" layoutY="57.0" />
-                              <Label layoutX="296.0" layoutY="98.0" text="J. Preferido" />
+                              <Label layoutX="18.0" layoutY="76.0" text="Fecha Hora" />
+                              <Label layoutX="20.0" layoutY="123.0" text="Duracion" />
+                              <Label layoutX="21.0" layoutY="161.0" text="Juego" />
+                              <Label layoutX="279.0" layoutY="31.0" text="Participantes" />
+                              <Label layoutX="25.0" layoutY="204.0" text="Ganador" />
+                              <TextField fx:id="tf_duracionModificar" layoutX="107.0" layoutY="119.0" />
+                              <DatePicker fx:id="dp_fechaModificar" layoutX="107.0" layoutY="72.0" prefHeight="26.0" prefWidth="150.0" />
+                              <ComboBox fx:id="cbx_juegoModificar" layoutX="104.0" layoutY="157.0" prefWidth="150.0" />
+                              <ComboBox fx:id="cbx_ganadorModificar" layoutX="104.0" layoutY="200.0" prefWidth="150.0" />
+                              <ListView fx:id="lv_participantesModificar" layoutX="367.0" layoutY="32.0" prefHeight="198.0" prefWidth="200.0" />
                            </children>
                         </AnchorPane>
                      </content>

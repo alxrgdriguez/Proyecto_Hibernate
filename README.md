@@ -1,4 +1,5 @@
-# Proyecto Alejandro Rodríguez Gallardo
+# 💻 Proyecto - Hibernate_JavaFX 
+>>Realizado por Alejandro Rodriguez
 Este proyecto se ha realizado de forma local, deberás tener instalado JDK 21 y continuar con los siguientes pasos:
 ―――――――――――――――――――――――――――
 > Entrar en el repositorio del proyecto
@@ -8,8 +9,7 @@ Este proyecto se ha realizado de forma local, deberás tener instalado JDK 21 y 
 ```
 git clone https://github.com/alxrgdriguez/Proyecto_Hibernate.git
 ```
-
-## 💻 - Hibernate_JavaFX 
+ 
 ―――――――――――――――――――――――――――
 
 

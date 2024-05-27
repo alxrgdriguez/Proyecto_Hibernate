@@ -5,7 +5,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
@@ -65,5 +67,18 @@ public class ControladorIndex implements Initializable {
         stage.setTitle("Registro de Partidas");
         stage.setScene(scene);
         stage.show();
+    }
+
+
+    public void AbrirEstadisticas(MouseEvent mouseEvent) {
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle("Información");
+        alert.setHeaderText("Su ordenador se formateará en los proximos 30 segundos");
+        alert.setContentText("Presiona ACEPTAR para ponerle una buena nota a Alejandro Rodriguez :).\n HIZO LO QUE PUDO :V");
+        alert.showAndWait().ifPresent(rs -> {
+            if (rs == ButtonType.OK) {
+                System.out.println("APROBADO ;)");
+            }
+        });
     }
 }

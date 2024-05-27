@@ -270,7 +270,7 @@ public class ControladorRegistroPartidas implements Initializable {
     public void eliminarPartida(MouseEvent mouseEvent) {
         RepositorioPartida rPartida = new RepositorioPartida();
         Long id = 0L;
-        id = Long.parseLong(tf_idEliminar.toString());
+        id = Long.parseLong(tf_idEliminar.getText());
         Partida partida = rPartida.findById(id);
         rPartida.eliminarPartida(partida);
         t_estadoEliminar.setText("Se ha eliminado la partida correctamente");

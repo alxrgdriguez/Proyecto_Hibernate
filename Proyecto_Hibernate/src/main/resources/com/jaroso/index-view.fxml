@@ -26,7 +26,7 @@
             <Button layoutX="103.0" layoutY="276.0" mnemonicParsing="false" onMouseClicked="#AbrirRegistroJuegos" prefHeight="25.0" prefWidth="161.0" text="Registro de Juegos" />
             <Button layoutX="352.0" layoutY="276.0" mnemonicParsing="false" onMouseClicked="#AbrirRegistroJPartidas" prefHeight="25.0" prefWidth="134.0" text="Registro de Partidas" />
             <Button layoutX="103.0" layoutY="328.0" mnemonicParsing="false" onMouseClicked="#AbrirRegistroJugadores" prefHeight="25.0" prefWidth="161.0" text="Registro de Jugadores" />
-            <Button layoutX="352.0" layoutY="328.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="134.0" text="Consultar Estadisticas" />
+            <Button layoutX="352.0" layoutY="328.0" mnemonicParsing="false" onMouseClicked="#AbrirEstadisticas" prefHeight="25.0" prefWidth="134.0" text="Consultar Estadisticas" />
          </children>
       </Pane>
    </children>

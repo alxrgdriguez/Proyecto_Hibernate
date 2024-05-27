@@ -5,7 +5,7 @@ Este proyecto se ha realizado de forma local, deberás tener instalado JDK 21 y 
 >https://github.com/alxrgdriguez/Proyecto_Hibernate
 
 ```
-
+git clone https://github.com/alxrgdriguez/Proyecto_Hibernate.git
 ```
 
 ―――――――――――――――――――――――――――

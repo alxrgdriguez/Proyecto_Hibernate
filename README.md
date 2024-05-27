@@ -9,7 +9,7 @@
 ```
 git clone https://github.com/alxrgdriguez/Proyecto_Hibernate.git
 ```
-Abre Intellij o su entorno de desarrollo para proceder con la prueba del proyecto
+### Abre Intellij o su entorno de desarrollo para proceder con la prueba del proyecto
 ―――――――――――――――――――――――――――
 
 
